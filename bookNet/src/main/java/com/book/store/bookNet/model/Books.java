@@ -30,6 +30,11 @@ public class Books {
         return id;
     }
 
+    public void atualizarDados(DadosAlteracaoBook dados) {
+        this.nome = dados.nome();
+        this.genero = dados.genero();
+    }
+
     @Override
     public String toString() {
         return "Books {" +

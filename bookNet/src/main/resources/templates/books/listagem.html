@@ -18,12 +18,24 @@
         <tr>
             <th>Nome</th>
             <th>Genero</th>
+            <th>Editar</th>
+            <th>Deletar</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="book: ${lista}">
             <td th:text="${book.nome}"></td>
             <td th:text="${book.genero}"></td>
+            <td>
+                <a th:href="@{/books/formulario?id={id}(id=${book.id})}">Editar</a>
+            </td>
+            <td>
+                <form action="/books" method="post">
+                    <input type="hidden" name="_method" value="delete" />
+                    <input type="hidden" name="id" th:value="${book.id}"/>
+                    <input type="submit" value="Excluir" />
+                </form>
+            </td>
         </tr>
         </tbody>
     </table>
